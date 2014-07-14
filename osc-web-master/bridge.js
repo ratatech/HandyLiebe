@@ -25,5 +25,6 @@ io.sockets.on('connection', function (socket) {
 	console.log("/" + ipArr[3] + arr[0],parseInt(arr[1]));
     oscClient.send("/" + ipArr[3] + arr[0],parseInt(arr[1]));
 	//oscClient.send("/foo");
+	//oscClient.send("/foo");
   });
 });
