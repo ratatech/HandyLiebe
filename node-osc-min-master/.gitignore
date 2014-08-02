@@ -1,4 +1,0 @@
-node_modules
-examples/*.js
-/coverage.html
-/lib/osc-utilities.js
