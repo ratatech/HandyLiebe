@@ -22,7 +22,7 @@
 #X obj 188 199 ctlout \$1 3;
 #X obj 266 199 ctlout \$1 4;
 #X obj 39 199 ctlout \$1 5;
-#X obj 107 53 threshold 30 0 30 0;
+#X obj 107 53 threshold 50 0 50 0;
 #X connect 0 0 15 0;
 #X connect 1 0 14 0;
 #X connect 2 0 16 0;
