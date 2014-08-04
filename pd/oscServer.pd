@@ -88,22 +88,22 @@
 #X floatatom -92 609 5 0 0 0 - - -;
 #X floatatom -1 610 5 0 0 0 - - -;
 #X obj 526 164 vsl 100 200 0 100 0 0 empty 20-slider empty 0 -9 0 4
--4034 -1 -1 7996 1;
+-4034 -1 -1 7749 1;
 #X obj 36 272 averageAcc 20;
 #X obj 643 164 vsl 100 200 0 100 0 0 empty 13-slider empty 0 -9 0 4
--258113 -1 -1 7322 1;
+-258113 -1 -1 4157 1;
 #X obj 758 164 vsl 100 200 0 100 0 0 empty 21-slider empty 0 -9 0 4
--257985 -1 -1 10540 1;
+-257985 -1 -1 5256 1;
 #X obj 875 164 vsl 100 200 0 100 0 0 empty 22-slider empty 0 -9 0 4
--4160 -1 -1 9621 1;
+-4160 -1 -1 10111 1;
 #X obj 524 386 vsl 100 200 0 100 0 0 empty 23-slider empty 0 -9 0 4
--159808 -1 -1 18030 1;
+-159808 -1 -1 13129 1;
 #X obj 641 386 vsl 100 200 0 100 0 0 empty 24-slider empty 0 -9 0 4
--83269 -1 -1 8671 1;
+-83269 -1 -1 7573 1;
 #X obj 756 386 vsl 100 200 0 100 0 0 empty 25-slider empty 0 -9 0 4
--162280 -1 -1 10582 1;
+-162280 -1 -1 5786 1;
 #X obj 873 386 vsl 100 200 0 100 0 0 empty 26-slider empty 0 -9 0 4
--204786 -1 -1 6848 1;
+-204786 -1 -1 4059 1;
 #X floatatom 1032 262 5 0 0 0 - - -;
 #X obj 1031 291 averageAcc 22;
 #X obj 1032 227 random 100;
@@ -163,9 +163,9 @@
 #X msg 1272 407 0;
 #X msg 1362 408 0;
 #X obj 1757 181 vsl 100 200 0 100 0 0 empty 27-slider empty 0 -9 0
-4 -260097 -1 -1 0 1;
+4 -260097 -1 -1 7711 1;
 #X obj 1753 403 vsl 100 200 0 100 0 0 empty 28-slider empty 0 -9 0
-4 -159808 -1 -1 7809 1;
+4 -159808 -1 -1 6920 1;
 #X floatatom 1440 254 5 0 0 0 - - -;
 #X obj 1440 219 random 100;
 #X obj 1440 125 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -223,9 +223,9 @@
 #X msg 1512 555 1;
 #X obj 1491 583 spigot;
 #X obj 1880 179 vsl 100 200 100 0 0 0 empty 29-slider empty 0 -9 0
-4 -228856 -1 -1 11238 1;
+4 -228856 -1 -1 19603 1;
 #X obj 1876 401 vsl 100 200 0 100 0 0 empty 30-slider empty 0 -9 0
-4 -45076 -1 -1 12467 1;
+4 -45076 -1 -1 12571 1;
 #X floatatom 1573 252 5 0 0 0 - - -;
 #X obj 1573 217 random 100;
 #X obj 1573 123 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
@@ -259,6 +259,10 @@
 #X obj 1142 370 midiSender 6;
 #X obj 1253 365 midiSender 7;
 #X obj 1365 365 midiSender 8;
+#X obj 1324 40 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1189 31 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 2 0 22 0;
 #X connect 3 0 22 1;
 #X connect 4 0 22 2;
@@ -413,3 +417,27 @@
 #X connect 147 0 151 0;
 #X connect 148 0 140 0;
 #X connect 149 0 141 0;
+#X connect 161 0 72 0;
+#X connect 161 0 73 0;
+#X connect 161 0 74 0;
+#X connect 161 0 75 0;
+#X connect 161 0 79 0;
+#X connect 161 0 78 0;
+#X connect 161 0 77 0;
+#X connect 161 0 76 0;
+#X connect 161 0 90 0;
+#X connect 161 0 138 0;
+#X connect 161 0 139 0;
+#X connect 161 0 91 0;
+#X connect 162 0 33 0;
+#X connect 162 0 38 0;
+#X connect 162 0 43 0;
+#X connect 162 0 47 0;
+#X connect 162 0 84 0;
+#X connect 162 0 132 0;
+#X connect 162 0 51 0;
+#X connect 162 0 55 0;
+#X connect 162 0 59 0;
+#X connect 162 0 63 0;
+#X connect 162 0 88 0;
+#X connect 162 0 136 0;
