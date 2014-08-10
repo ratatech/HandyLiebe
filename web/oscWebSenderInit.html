@@ -103,62 +103,6 @@ var x = 0, y = 0,
 	
 var sphere = document.getElementById("sphere");
 
-var a = 0;
-setTimeout(function(){a=1}, 2000);
-
-
-if (window.DeviceMotionEvent != undefined) {
-	window.ondevicemotion = function(e) {
-		ax = event.accelerationIncludingGravity.x * 5;
-		ay = event.accelerationIncludingGravity.y * 5;
-		document.getElementById("accelerationX").innerHTML = e.accelerationIncludingGravity.x;
-		document.getElementById("accelerationY").innerHTML = e.accelerationIncludingGravity.y;
-		document.getElementById("accelerationZ").innerHTML = e.accelerationIncludingGravity.z;
-
-		if ( e.rotationRate ) {
-			document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
-			document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
-			document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
-		}
-		var xAxis = "/purple/x ";
-		var yAxis = "/purple/y ";
-		var zAxis = "/purple/z ";
-		var strX = e.accelerationIncludingGravity.x;
-		var strY = e.accelerationIncludingGravity.y;
-		var strZ = e.accelerationIncludingGravity.z;
-		var oscStringX = xAxis.concat(strX);
-		var oscStringY = yAxis.concat(strY);
-		var oscStringZ = zAxis.concat(strZ);
-		socket.emit('message',oscStringX);
-		socket.emit('message',oscStringY);	
-		socket.emit('message',oscStringZ);			
-	}
-
-	setInterval( function() {
-		var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
-		if ( landscapeOrientation) {
-			vx = vx + ay;
-			vy = vy + ax;
-		} else {
-			vy = vy - ay;
-			vx = vx + ax;
-		}
-		vx = vx * 0.98;	
-		vy = vy * 0.98;
-		y = parseInt(y + vy / 50);
-		x = parseInt(x + vx / 50);
-		
-		boundingBoxCheck();
-		
-		sphere.style.top = y + "px";
-		sphere.style.left = x + "px";
-		
-	}, 25);
-	
-
-} 
-
-
 
 function boundingBoxCheck(){
 	if (x<0) { x = 0; vx = -vx; }
