@@ -1,0 +1,10 @@
+#N canvas 149 224 450 300 10;
+#X obj -643 50 r \$1-orangeX;
+#X obj -564 50 r \$1-orangeY;
+#X obj -484 50 r \$1-orangeZ;
+#X obj -643 91 outlet;
+#X obj -564 90 outlet;
+#X obj -484 90 outlet;
+#X connect 0 0 3 0;
+#X connect 1 0 4 0;
+#X connect 2 0 5 0;

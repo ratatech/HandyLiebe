@@ -1,0 +1,23 @@
+#N canvas 601 265 450 300 10;
+#X obj -643 135 outlet;
+#X obj -640 61 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -500 74 f \$1;
+#X obj -643 91 pack \$1 \$2 \$3 \$4;
+#X obj -461 41 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -507 -6 r \$1-cyanZ;
+#X obj -587 -6 r \$1-cyanY;
+#X obj -666 -6 r \$1-cyanX;
+#X connect 1 0 3 0;
+#X connect 2 0 3 3;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 1 0;
+#X connect 5 0 3 2;
+#X connect 5 0 4 0;
+#X connect 6 0 1 0;
+#X connect 6 0 3 1;
+#X connect 6 0 4 0;
+#X connect 7 0 3 0;
+#X connect 7 0 4 0;
