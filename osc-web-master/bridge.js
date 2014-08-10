@@ -9,9 +9,8 @@ io.sockets.on('connection', function (socket) {
     oscClient = new osc.Client(obj.client.host, obj.client.port);
 	
     oscClient.send('/status', socket.sessionId + ' connected');
-		
     oscServer.on('message', function(msg, rinfo) {
-      console.log(msg, rinfo);
+      //console.log(msg, rinfo);
       socket.emit("message", msg);
     });
   });
@@ -22,9 +21,11 @@ io.sockets.on('connection', function (socket) {
 	ipArr = ipArr.split(".");
     
     var arr = messArr.split(" ");
-	console.log("/" + ipArr[3] + arr[0],parseInt(arr[1]));
-    oscClient.send("/" + ipArr[3] + arr[0],parseInt(arr[1]));
-	//oscClient.send("/foo");
-	//oscClient.send("/foo");
+	//console.log("/" + ipArr[3] + arr[0],parseInt(arr[1]));
+	oscClient.send("/" + ipArr[3] + arr[0],parseInt(arr[1]));
+	//oscClient.send("/20/orange/x 23");
+	//oscClient.send("/20/orange/y 5");
+	//oscClient.send("/20/orange/z 1");
+	
   });
 });
