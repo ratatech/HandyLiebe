@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>MILFOLLS 2014: "HANDYLIEBE"</title>
+<meta name="viewport" content="width=device-width,user-scalable=no" />
+<style>
+body {
+	font-family: helvetica, arial, sans serif;
+	overflow-x: hidden
+}
+#sphere {
+	position: absolute;	
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	-webkit-radius: 50px;
+	background-color: yellow;
+	border-radius: 50%;
+    box-shadow: inset -25px -25px 40px rgba(0,0,0,.5);
+	background-image: -webkit-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+	background-image: -moz-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);  
+	background-image: -o-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+	background-image: -ms-linear-gradient(-45deg, rgba(255,255,220,.3) 0%, transparent 100%);
+}
+html { 
+  background: url(indivendresd.png) no-repeat center center fixed; 
+  background-size: 50%;
+  background-color: white;
+}
+</style>
+</head>
+
+<body>
+<div id="content">
+    <h1>MILFOLLS 2014: "HANDYLIEBE"</h1>
+    <div id="sphere"></div>
+<ul>
+	<li>acceleration x: <span id="accelerationX"></span>g</li>
+	<li>acceleration y: <span id="accelerationY"></span>g</li>
+	<li>acceleration z: <span id="accelerationZ"></span>g</li>
+</ul>
+	
+</div>
+
+<script src="http://192.168.0.11:8081/socket.io/socket.io.js"></script>
+
+<script>
+function getClientIp() {
+	socket.emit('message',"/sliders/x 93");
+}
+</script>
+
+<script src="./nodeFiles/config-defs.js"></script>
+<script type="application/javascript">
+	
+	var interfaces = os.networkInterfaces();
+	var addresses = [];
+	for (k in interfaces) {
+		for (k2 in interfaces[k]) {
+			var address = interfaces[k][k2];
+			if (address.family == 'IPv4' && !address.internal) {
+				addresses.push(address.address)
+			}
+		}
+	}
+
+	document.getElementById("ipAdress").innerHTML = 44;
+</script>
+
+
+
+<script type="text/javascript">
+
+socket = io.connect('http://192.168.0.11', { port: 8081, rememberTransport: false});
+console.log('oi');
+socket.on('connect', function() {
+	// sends to socket.io server the host/port of oscServer
+	// and oscClient
+	socket.emit('config',
+		{
+			server: {
+				port: 3333,
+				host: '192.168.0.11'
+			},
+			client: {
+				port: 3334,
+				host: '192.168.0.11'
+			}
+		}
+	);
+});
+
+socket.on('message', function(obj) {
+	var status = document.getElementById("status");
+	status.innerHTML = obj[0];
+	console.log(obj);
+});
+
+var x = 0, y = 0,
+    vx = 0, vy = 0,
+	ax = 0, ay = 0;
+	
+var sphere = document.getElementById("sphere");
+
+var a = 0;
+setTimeout(function(){a=1}, 2000);
+
+
+if (window.DeviceMotionEvent != undefined) {
+	window.ondevicemotion = function(e) {
+		ax = event.accelerationIncludingGravity.x * 5;
+		ay = event.accelerationIncludingGravity.y * 5;
+		document.getElementById("accelerationX").innerHTML = precise_round(e.accelerationIncludingGravity.x,2);
+		document.getElementById("accelerationY").innerHTML = precise_round(e.accelerationIncludingGravity.y,2);
+		document.getElementById("accelerationZ").innerHTML = precise_round(e.accelerationIncludingGravity.z,2);
+
+		if ( e.rotationRate ) {
+			document.getElementById("rotationAlpha").innerHTML = e.rotationRate.alpha;
+			document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
+			document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
+		}
+		var xAxis = "/yellow/x ";
+		var yAxis = "/yellow/y ";
+		var zAxis = "/yellow/z ";
+		var strX = e.accelerationIncludingGravity.x;
+		var strY = e.accelerationIncludingGravity.y;
+		var strZ = e.accelerationIncludingGravity.z;
+		var oscStringX = xAxis.concat(strX);
+		var oscStringY = yAxis.concat(strY);
+		var oscStringZ = zAxis.concat(strZ);
+		socket.emit('message',oscStringX);
+		socket.emit('message',oscStringY);	
+		socket.emit('message',oscStringZ);
+
+		
+	}
+
+	setInterval( function() {
+		var landscapeOrientation = window.innerWidth/window.innerHeight > 1;
+		if ( landscapeOrientation) {
+			vx = vx + ay;
+			vy = vy + ax;
+		} else {
+			vy = vy - ay;
+			vx = vx + ax;
+		}
+		vx = vx * 0.98;	
+		vy = vy * 0.98;
+		y = parseInt(y + vy / 50);
+		x = parseInt(x + vx / 50);
+		
+		boundingBoxCheck();
+		
+		sphere.style.top = y + "px";
+		sphere.style.left = x + "px";
+		
+	}, 25);
+	
+
+} 
+
+function precise_round(num,decimals) {
+    return Math.round(num * Math.pow(10, decimals)) / Math.pow(10, decimals);
+}
+
+function boundingBoxCheck(){
+	if (x<0) { x = 0; vx = -vx; }
+	if (y<0) { y = 0; vy = -vy; }
+	if (x>document.documentElement.clientWidth-20) { x = document.documentElement.clientWidth-20; vx = -vx; }
+	if (y>document.documentElement.clientHeight-20) { y = document.documentElement.clientHeight-20; vy = -vy; }
+	
+}
+
+</script>
+
+</body>
+</html>
