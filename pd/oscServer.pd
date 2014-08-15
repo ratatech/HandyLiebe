@@ -1,4 +1,4 @@
-#N canvas 0 0 1362 686 10;
+#N canvas 1 1 1348 668 10;
 #X declare -lib mrpeach;
 #X obj 66 103 unpackOSC;
 #X obj 42 30 import mrpeach;
@@ -259,7 +259,7 @@ empty 0 -9 0 10 -159808 -1 -1 0 1;
 #X obj 214 120 spigot;
 #X obj 240 90 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
-#N canvas -8 -8 1366 686 routeMidi 0;
+#N canvas 0 0 1366 686 routeMidi 0;
 #X obj 323 484 midiSenderSlider 10;
 #X obj -183 478 midiSenderSlider 6;
 #X obj -55 479 midiSenderSlider 7;
@@ -307,26 +307,26 @@ empty 0 -9 0 10 -159808 -1 -1 0 1;
 #X obj 330 42 tgl 15 0 empty allTogg empty 17 7 0 10 -262144 -1 -1
 1 1;
 #X obj 330 8 loadbang;
-#X obj -209 -71 vsl 15 128 0 127 0 0 empty s1 empty 0 -9 0 10 -262144
--1 -1 1600 1;
-#X obj -81 -70 vsl 15 128 0 127 0 0 empty s2 empty 0 -9 0 10 -262144
--1 -1 6300 1;
-#X obj 43 -73 vsl 15 128 0 127 0 0 empty s3 empty 0 -9 0 10 -262144
--1 -1 9700 1;
-#X obj 170 -71 vsl 15 128 0 127 0 0 empty s4 empty 0 -9 0 10 -262144
+#X obj -209 -71 vsl 15 128 0 127 0 0 1-spY s1 empty 0 -9 0 10 -262144
+-1 -1 6100 1;
+#X obj -81 -70 vsl 15 128 0 127 0 0 2-spY s2 empty 0 -9 0 10 -262144
+-1 -1 6500 1;
+#X obj 43 -73 vsl 15 128 0 127 0 0 3-spY s3 empty 0 -9 0 10 -262144
 -1 -1 8700 1;
-#X obj 297 -74 vsl 15 128 0 127 0 0 empty s5 empty 0 -9 0 10 -262144
--1 -1 4800 1;
-#X obj -183 293 vsl 15 128 0 127 0 0 empty s6 empty 0 -9 0 10 -262144
+#X obj 170 -71 vsl 15 128 0 127 0 0 4-spY s4 empty 0 -9 0 10 -262144
+-1 -1 9800 1;
+#X obj 297 -74 vsl 15 128 0 127 0 0 5-spY s5 empty 0 -9 0 10 -262144
+-1 -1 8200 1;
+#X obj -183 293 vsl 15 128 0 127 0 0 6-spY s6 empty 0 -9 0 10 -262144
+-1 -1 7800 1;
+#X obj -55 294 vsl 15 128 0 127 0 0 7-spY s7 empty 0 -9 0 10 -262144
+-1 -1 5600 1;
+#X obj 61 305 vsl 15 128 0 4.60517 0 0 8-spY s8 empty 0 -9 0 10 -262144
+-1 -1 2100 1;
+#X obj 196 293 vsl 15 128 64 127 0 0 9-spY s9 empty 0 -9 0 10 -262144
+-1 -1 6652 1;
+#X obj 321 290 vsl 15 128 0 127 0 0 10-spY s10 empty 0 -9 0 10 -262144
 -1 -1 3100 1;
-#X obj -55 294 vsl 15 128 0 127 0 0 empty s7 empty 0 -9 0 10 -262144
--1 -1 5100 1;
-#X obj 61 305 vsl 15 128 0 4.60517 0 0 empty empty empty 0 -9 0 10
--262144 -1 -1 4300 1;
-#X obj 196 293 vsl 15 128 64 127 0 0 empty s9 empty 0 -9 0 10 -262144
--1 -1 0 1;
-#X obj 321 290 vsl 15 128 0 127 0 0 empty s10 empty 0 -9 0 10 -262144
--1 -1 6200 1;
 #X obj 297 -108 spigot;
 #X obj 330 -135 tgl 15 0 empty allTogg empty 17 7 0 10 -262144 -1 -1
 0 1;
@@ -553,6 +553,7 @@ empty 0 -9 0 10 -159808 -1 -1 0 1;
 #X obj 1456 532 averageAcc 28;
 #X obj 1572 281 averageAcc 29;
 #X obj 1589 530 averageAcc 30;
+#X obj 154 394 visualSliders;
 #X connect 0 0 129 0;
 #X connect 0 0 144 0;
 #X connect 2 0 0 0;
