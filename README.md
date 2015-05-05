@@ -1,6 +1,5 @@
-milfolls2014
+HandyLiebe
 ============
-TODO:Write good project description about Millfolls2014
 
+Handy Liebe is a project containing different tools to interact between smartphones and javascript web applications running in the same local network.
 
-Readme file for milfolls2014 repository
